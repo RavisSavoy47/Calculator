@@ -27,7 +27,7 @@ namespace Calculator
                     return result;
                 }
 
-                else;
+                else; 
                 {
                     Console.WriteLine("Invaild input recieved. Please type a number.");
                 }
