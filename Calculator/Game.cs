@@ -10,6 +10,7 @@ namespace Calculator
         float result;
         bool notFinished = false;
         string input = " ";
+
         //setting up the first number
         float FirstSlection()
         {
@@ -56,17 +57,21 @@ namespace Calculator
             }
             return 0;
         }
-
+        /// <summary>
+        /// the operation connect each soluction to the numbers and vice versa 
+        /// </summary>
         void operations()
         {
             float num1 = FirstSlection();
             float num2 = SecondSlection();
             //the slection to choose whta you want to do to the numbers
-            Console.WriteLine(" 1. Addition"+"\n 2. Subtraction"+"\n 3. Muliplication"+"\n 4. Division");
-            string input = Console.ReadLine();
+           
             bool invaildInput = false;
             while (invaildInput == false)
             {
+                Console.WriteLine(" 1. Addition" + "\n 2. Subtraction" + "\n 3. Muliplication" + "\n 4. Division");
+                string input = Console.ReadLine();
+
                 if (input == "1" || input.ToLower() == "addition")
                 {
                     result = Add(num1, num2);
@@ -106,13 +111,13 @@ namespace Calculator
                 else
                 {
                     Console.WriteLine("Invaild input recieved. Please type a number.");
-                    invaildInput = false;
+                    
                 }
 
             }
             
         }
-
+        //after you say yes yoyu restart at the begining 
         void ClearScreen()
         {
             Console.WriteLine("Press any key to continue.");
@@ -160,19 +165,32 @@ namespace Calculator
             while(notFinished == false)
             {
                 operations();
-                //do you want to keep going or not
-                Console.WriteLine("Do you want to continue?"+"\n 1. Yes"+"\n 2. No");
-                string input = Console.ReadLine();
-                if (input == "1" || input.ToLower() == "yes")
+                //Making the game loop 
+                bool invaildInput = false;
+                while (invaildInput == false)
                 {
-                    ClearScreen();
-                }
+                    //do you want to keep going or not
+                    Console.WriteLine("Do you want to continue?" + "\n 1. Yes" + "\n 2. No");
+                    string input = Console.ReadLine();
+                    if (input == "1" || input.ToLower() == "yes")
+                    {
+                        invaildInput = true;
+                        ClearScreen();
+                    }
+                    //the game ends here
+                    else if (input == "2" || input.ToLower() == "no")
+                    {
+                        notFinished = true;
 
-                else if (input == "2" || input.ToLower() == "no")
-                {
-                    notFinished = true;
+                    }
+                    //to check for errors
+                    else
+                    {
+                        Console.WriteLine("Invaild input recieved. Please type 1 or 2.");
+                        invaildInput = false;
+                    }
                 }
-
+               
             }
 
         }
