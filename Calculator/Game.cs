@@ -56,6 +56,47 @@ namespace Calculator
             return 0;
         }
 
+        void operations()
+        {
+            float num1 = FirstSlection();
+            float num2 = SecondSlection();
+
+            Console.WriteLine("1. Addition"+"\n 2. Subtraction"+"\n 3. Muliplication"+"\n 4. Division");
+            string input = Console.ReadLine();
+            bool invaildInput = false;
+            while (invaildInput == false)
+            {
+                if (input == "1" || input.ToLower() == "addition")
+                {
+                    Add(num1, num2);
+                    invaildInput = true;
+                }
+
+               else if (input == "1" || input.ToLower() == "subtraction")
+                {
+                    Substract(num1, num2);
+                    invaildInput = true;
+                }
+
+                else if (input == "1" || input.ToLower() == "multiplication")
+                {
+                    Multiplty(num1, num2);
+                    invaildInput = true;
+                }
+
+                else if (input == "1" || input.ToLower() == "division")
+                {
+                    Divide(num1, num2);
+                    invaildInput = true;
+                }
+
+                else
+                {
+                    Console.WriteLine("Invaild input recieved. Please type a number.");
+                }
+
+            }
+        }
 
         void CalculateNumber()
         {
