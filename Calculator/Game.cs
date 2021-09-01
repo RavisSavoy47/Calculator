@@ -6,8 +6,8 @@ namespace Calculator
 {
     class Game
     {
-
-
+        float result;
+        bool notFinished = false;
         string input = " ";
 
         float FirstSlection()
@@ -38,7 +38,7 @@ namespace Calculator
             bool invaildInput = false;
             while (invaildInput == false)
             {
-                Console.WriteLine("Please enter your first number");
+                Console.WriteLine("Please enter your Second number");
                 string num2 = Console.ReadLine();
 
                 if (Single.TryParse(num2, out float result))
@@ -61,43 +61,65 @@ namespace Calculator
             float num1 = FirstSlection();
             float num2 = SecondSlection();
 
-            Console.WriteLine("1. Addition"+"\n 2. Subtraction"+"\n 3. Muliplication"+"\n 4. Division");
+            Console.WriteLine(" 1. Addition"+"\n 2. Subtraction"+"\n 3. Muliplication"+"\n 4. Division");
             string input = Console.ReadLine();
             bool invaildInput = false;
             while (invaildInput == false)
             {
                 if (input == "1" || input.ToLower() == "addition")
                 {
-                    Add(num1, num2);
+                    result = Add(num1, num2);
+                    Console.Clear();
+                    Console.WriteLine("Your answer is");
+                    Console.WriteLine(result);
                     invaildInput = true;
                 }
 
-               else if (input == "1" || input.ToLower() == "subtraction")
+               else if (input == "2" || input.ToLower() == "subtraction")
                 {
-                    Substract(num1, num2);
+                    result = Substract(num1, num2);
+                    Console.Clear();
+                    Console.WriteLine("Your answer is");
+                    Console.WriteLine(result);
                     invaildInput = true;
                 }
 
-                else if (input == "1" || input.ToLower() == "multiplication")
+                else if (input == "3" || input.ToLower() == "multiplication")
                 {
-                    Multiplty(num1, num2);
+                    result = Multiplty(num1, num2);
+                    Console.Clear();
+                    Console.WriteLine("Your answer is");
+                    Console.WriteLine(result);
                     invaildInput = true;
                 }
 
-                else if (input == "1" || input.ToLower() == "division")
+                else if (input == "4" || input.ToLower() == "division")
                 {
-                    Divide(num1, num2);
+                    result = Divide(num1, num2);
+                    Console.Clear();
+                    Console.WriteLine("Your answer is");
+                    Console.WriteLine(result);
                     invaildInput = true;
                 }
 
                 else
                 {
                     Console.WriteLine("Invaild input recieved. Please type a number.");
+                    invaildInput = false;
                 }
 
             }
+            
         }
 
+        void ClearScreen()
+        {
+            Console.WriteLine("Press any key to continue.");
+            string input = Console.ReadLine();
+            Console.Clear();
+        }
+
+        //idea
         void CalculateNumber()
         {
             float inputValue;
@@ -130,10 +152,27 @@ namespace Calculator
             return num1 / num2;
         }
 
-
+        
         public void Run()
         {
-            Console.WriteLine("0");
+            bool notFinished = false;
+            while(notFinished == false)
+            {
+                operations();
+
+                Console.WriteLine("Do you want to continue?"+"\n 1. Yes"+"\n 2. No");
+                string input = Console.ReadLine();
+                if (input == "1" || input.ToLower() == "yes")
+                {
+                    ClearScreen();
+                }
+
+                else if (input == "2" || input.ToLower() == "no")
+                {
+                    notFinished = true;
+                }
+
+            }
 
         }
 
