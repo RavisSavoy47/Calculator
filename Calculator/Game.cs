@@ -6,10 +6,11 @@ namespace Calculator
 {
     class Game
     {
+        
         float result;
         bool notFinished = false;
         string input = " ";
-
+        //setting up the first number
         float FirstSlection()
         {
             bool invaildInput = false;
@@ -32,7 +33,7 @@ namespace Calculator
             }
             return 0;
         }
-
+        //setting up the second number 
         float SecondSlection()
         {
             bool invaildInput = false;
@@ -60,7 +61,7 @@ namespace Calculator
         {
             float num1 = FirstSlection();
             float num2 = SecondSlection();
-
+            //the slection to choose whta you want to do to the numbers
             Console.WriteLine(" 1. Addition"+"\n 2. Subtraction"+"\n 3. Muliplication"+"\n 4. Division");
             string input = Console.ReadLine();
             bool invaildInput = false;
@@ -119,7 +120,7 @@ namespace Calculator
             Console.Clear();
         }
 
-        //idea
+        //how to use tryparse but i threw the idea away
         void CalculateNumber()
         {
             float inputValue;
@@ -131,7 +132,7 @@ namespace Calculator
             }
 
         }
-
+        ///connected each operator to first and second numbers
         float Add(float num1, float num2)
         {
             return num1 + num2;
@@ -159,7 +160,7 @@ namespace Calculator
             while(notFinished == false)
             {
                 operations();
-
+                //do you want to keep going or not
                 Console.WriteLine("Do you want to continue?"+"\n 1. Yes"+"\n 2. No");
                 string input = Console.ReadLine();
                 if (input == "1" || input.ToLower() == "yes")
